@@ -1,6 +1,8 @@
 from stats import get_book_text, get_word_count, get_char_frequency, sorted_char_frequency
+import sys
+
 def main():
-    book_filepath = './books/frankenstein.txt'
+    book_filepath = sys.argv[1]
     book_text = get_book_text(book_filepath)
     wc = get_word_count(book_text)
     char_dict = get_char_frequency(book_text)
