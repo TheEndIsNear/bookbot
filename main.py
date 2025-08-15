@@ -2,12 +2,16 @@ from stats import get_book_text, get_word_count, get_char_frequency, sorted_char
 import sys
 
 def main():
-    book_filepath = sys.argv[1]
-    book_text = get_book_text(book_filepath)
-    wc = get_word_count(book_text)
-    char_dict = get_char_frequency(book_text)
-    sorted_char_dict = sorted_char_frequency(char_dict)
-    print_report(book_filepath, wc, sorted_char_dict)
+    if len(sys.argv) == 2:
+        book_filepath = sys.argv[1]
+        book_text = get_book_text(book_filepath)
+        wc = get_word_count(book_text)
+        char_dict = get_char_frequency(book_text)
+        sorted_char_dict = sorted_char_frequency(char_dict)
+        print_report(book_filepath, wc, sorted_char_dict)
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
 
 def print_report(book_filepath, wc, char_dict):
     print("============ BOOKBOT ============")
